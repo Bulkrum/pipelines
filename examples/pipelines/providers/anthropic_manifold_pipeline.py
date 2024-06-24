@@ -1,7 +1,7 @@
 """
 title: Anthropic Manifold Pipeline
-author: justinh-rahb
-date: 2024-06-20
+author: donny-son
+date: 2024-06-24
 version: 1.1
 license: MIT
 description: A pipeline for generating text using the Anthropic API.
@@ -99,7 +99,7 @@ class Pipeline:
             **{
                 "model": model_id,
                 **(
-                    {"system": system_message} if system_message else {}
+                    {"system": system_message["content"]} if system_message else {}
                 ),  # Add system message if it exists (optional
                 "messages": messages,
                 "max_tokens": max_tokens,
@@ -134,7 +134,7 @@ class Pipeline:
             **{
                 "model": model_id,
                 **(
-                    {"system": system_message} if system_message else {}
+                    {"system": system_message["content"]} if system_message else {}
                 ),  # Add system message if it exists (optional
                 "messages": messages,
                 "max_tokens": max_tokens,
